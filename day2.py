@@ -1,130 +1,147 @@
-# # # # # # # # # Suppose you are given the below string
+# # # # # # # # # # Suppose you are given the below string
 
-# # # # # # # # # str = “””Email_Address,Nickname,Group_Status,Join_Year
+# # # # # # # # # # str = “””Email_Address,Nickname,Group_Status,Join_Year
+# # # # # # # # # # aa@aaa.com,aa,Owner,2014
+# # # # # # # # # # bb@bbb.com,bb,Member,2015
+# # # # # # # # # # cc@ccc.com,cc,Member,2017
+# # # # # # # # # # dd@ddd.com,dd,Member,2016
+# # # # # # # # # # ee@eee.com,ee,Member,2020
+# # # # # # # # # # “””
+
+# # # # # # # # # # In order to extract only the domain names from the email addresses from the above string (for eg. “aaa”, “bbb”..) you write the following code:
+
+# # # # # # # # # import re
+
+# # # # # # # # # str_data = """Email_Address,Nickname,Group_Status,Join_Year
 # # # # # # # # # aa@aaa.com,aa,Owner,2014
 # # # # # # # # # bb@bbb.com,bb,Member,2015
 # # # # # # # # # cc@ccc.com,cc,Member,2017
 # # # # # # # # # dd@ddd.com,dd,Member,2016
 # # # # # # # # # ee@eee.com,ee,Member,2020
-# # # # # # # # # “””
+# # # # # # # # # """
 
-# # # # # # # # # In order to extract only the domain names from the email addresses from the above string (for eg. “aaa”, “bbb”..) you write the following code:
+# # # # # # # # # domains = re.findall(r'@([a-zA-Z0-9]+)\.', str_data)
 
-# # # # # # # # import re
+# # # # # # # # # print(domains)
 
-# # # # # # # # str_data = """Email_Address,Nickname,Group_Status,Join_Year
-# # # # # # # # aa@aaa.com,aa,Owner,2014
-# # # # # # # # bb@bbb.com,bb,Member,2015
-# # # # # # # # cc@ccc.com,cc,Member,2017
-# # # # # # # # dd@ddd.com,dd,Member,2016
-# # # # # # # # ee@eee.com,ee,Member,2020
-# # # # # # # # """
+# # # # # # # # # Your friend has a hypothesis – “All those people who have names ending with the sound of “y” (Eg: Hollie) are intelligent people.” Please note: The name should end with the sound of ‘y’ but not end with alphabet ‘y’.
 
-# # # # # # # # domains = re.findall(r'@([a-zA-Z0-9]+)\.', str_data)
+# # # # # # # # # Now you being a data freak, challenge the hypothesis by scraping data from your college’s website. Here’s data you have collected.
 
-# # # # # # # # print(domains)
+# # # # # # # # # Name	Marks
+# # # # # # # # # Andy	0
+# # # # # # # # # Mandi	10
+# # # # # # # # # Sandy	20
+# # # # # # # # # Hollie	18
+# # # # # # # # # Molly	19
+# # # # # # # # # Dollie	15
 
-# # # # # # # # Your friend has a hypothesis – “All those people who have names ending with the sound of “y” (Eg: Hollie) are intelligent people.” Please note: The name should end with the sound of ‘y’ but not end with alphabet ‘y’.
+# # # # # # # # # You want to make a list of all people who fall in this category. You write following code do to the same:
 
-# # # # # # # # Now you being a data freak, challenge the hypothesis by scraping data from your college’s website. Here’s data you have collected.
+# # # # # # # # names = ["Andy", "Mandi", "Sandy", "Hollie", "Molly", "Dollie"]
 
-# # # # # # # # Name	Marks
-# # # # # # # # Andy	0
-# # # # # # # # Mandi	10
-# # # # # # # # Sandy	20
-# # # # # # # # Hollie	18
-# # # # # # # # Molly	19
-# # # # # # # # Dollie	15
+# # # # # # # # result = []
 
-# # # # # # # # You want to make a list of all people who fall in this category. You write following code do to the same:
+# # # # # # # # for name in names:
+# # # # # # # #     if name.lower().endswith("ie"):
+# # # # # # # #         result.append(name)
 
-# # # # # # # names = ["Andy", "Mandi", "Sandy", "Hollie", "Molly", "Dollie"]
+# # # # # # # # print(result)
 
-# # # # # # # result = []
+# # # # # # # # Assume, you are given two lists:
 
-# # # # # # # for name in names:
-# # # # # # #     if name.lower().endswith("ie"):
-# # # # # # #         result.append(name)
+# # # # # # # # a = [1,2,3,4,5]
 
-# # # # # # # print(result)
+# # # # # # # # b = [6,7,8,9]
 
-# # # # # # # Assume, you are given two lists:
+# # # # # # # # The task is to create a list which has all the elements of a and b in one dimension.
 
-# # # # # # # a = [1,2,3,4,5]
+# # # # # # # a = [1, 2, 3, 4, 5]
+# # # # # # # b = [6, 7, 8, 9]
 
-# # # # # # # b = [6,7,8,9]
+# # # # # # # c = a + b
 
-# # # # # # # The task is to create a list which has all the elements of a and b in one dimension.
+# # # # # # # print(c)
 
-# # # # # # a = [1, 2, 3, 4, 5]
-# # # # # # b = [6, 7, 8, 9]
+# # # # # # # You have built a machine learning model which you wish to freeze now and use later. Which of the following command can perform this task for you?
 
-# # # # # # c = a + b
+# # # # # # import joblib
 
-# # # # # # print(c)
+# # # # # # joblib.dump(model, "model.pkl")
 
-# # # # # # You have built a machine learning model which you wish to freeze now and use later. Which of the following command can perform this task for you?
+# # # # # # We want to convert the below string in date-time value:
 
-# # # # # import joblib
+# # # # # import pandas as pd
 
-# # # # # joblib.dump(model, "model.pkl")
+# # # # # date = "2024-01-15"
 
-# # # # # We want to convert the below string in date-time value:
+# # # # # date_time = pd.to_datetime(date)
 
-# # # # import pandas as pd
+# # # # # print(date_time)
 
-# # # # date = "2024-01-15"
+# # # # # I have built a simple neural network for an image recognition problem. Now, I want to test if I have assigned the weights & biases for the hidden layer correctly. To perform this action, I am giving an identity matrix as input. Below is my identity matrix:
 
-# # # # date_time = pd.to_datetime(date)
+# # # # # A =  [ 1, 0, 0
+# # # # # 0, 1, 0
+# # # # # 0, 0, 1]7) How would you create this identity matrix in python?
 
-# # # # print(date_time)
+# # # # import numpy as np
 
-# # # # I have built a simple neural network for an image recognition problem. Now, I want to test if I have assigned the weights & biases for the hidden layer correctly. To perform this action, I am giving an identity matrix as input. Below is my identity matrix:
+# # # # A = np.eye(3)
 
-# # # # A =  [ 1, 0, 0
-# # # # 0, 1, 0
-# # # # 0, 0, 1]7) How would you create this identity matrix in python?
+# # # # print(A)
+
+# # # # To check whether the two arrays occupy same space, what would you do?
+
+# # # # I have two numpy arrays “e” and “f”.You get the following output when you print “e” & “f”
+
+# # # # print e
+# # # # [1, 2, 3, 2, 3, 4, 4, 5, 6]
+# # # # print f
+# # # # [[1, 2, 3], [2, 3, 4], [4, 5, 6]]
+# # # # When you change the values of the first array, the values for the second array also changes. This creates a problem while processing the data.
+
+# # # # For example, if you set the first 5 values of e as 0; i.e.
 
 # # # import numpy as np
 
-# # # A = np.eye(3)
+# # # e = np.array([1, 2, 3, 2, 3, 4, 4, 5, 6])
 
-# # # print(A)
+# # # f = e.reshape(3, 3)
 
-# # # To check whether the two arrays occupy same space, what would you do?
+# # e[:5] = 0
 
-# # # I have two numpy arrays “e” and “f”.You get the following output when you print “e” & “f”
+# # Suppose you want to join train and test dataset (both are two numpy arrays train_set and test_set) into a resulting array (resulting_set) to do data processing on it simultaneously. This is as follows:
 
-# # # print e
-# # # [1, 2, 3, 2, 3, 4, 4, 5, 6]
-# # # print f
-# # # [[1, 2, 3], [2, 3, 4], [4, 5, 6]]
-# # # When you change the values of the first array, the values for the second array also changes. This creates a problem while processing the data.
+# # train_set = np.array([1, 2, 3])
+# # test_set = np.array([[0, 1, 2], [1, 2, 3]])
+# # resulting_set --> [[1, 2, 3], [0, 1, 2], [1, 2, 3]]
+# # 9) How would you join the two arrays?
 
-# # # For example, if you set the first 5 values of e as 0; i.e.
 
-# # import numpy as np
-
-# # e = np.array([1, 2, 3, 2, 3, 4, 4, 5, 6])
-
-# # f = e.reshape(3, 3)
-
-# e[:5] = 0
-
-# Suppose you want to join train and test dataset (both are two numpy arrays train_set and test_set) into a resulting array (resulting_set) to do data processing on it simultaneously. This is as follows:
+# import numpy as np
 
 # train_set = np.array([1, 2, 3])
-# test_set = np.array([[0, 1, 2], [1, 2, 3]])
-# resulting_set --> [[1, 2, 3], [0, 1, 2], [1, 2, 3]]
-# 9) How would you join the two arrays?
+# test_set = np.array([[0, 1, 2],
+#                      [1, 2, 3]])
+
+# resulting_set = np.vstack((train_set, test_set))
+
+# print(resulting_set)
 
 
-import numpy as np
+# Suppose you are tuning hyperparameters of a random forest classifier for the Iris dataset.
 
-train_set = np.array([1, 2, 3])
-test_set = np.array([[0, 1, 2],
-                     [1, 2, 3]])
+# Sepal_length	Sepal_width	Petal_length	Petal_width	Species
+# 4.6	3.2	1.4	0.2	Iris-setosa
+# 5.3	3.7	1.5	0.2	Iris-setosa
+# 5.0	3.3	1.4	0.2	Iris-setosa
+# 7.0	3.2	4.7	1.4	Iris-versicolor
+# 6.4	3.2	4.5	1.5	Iris-versicolor
+# 10) What would be the best value for “random_state (Seed value)”?
 
-resulting_set = np.vstack((train_set, test_set))
+from sklearn.ensemble import RandomForestClassifier
 
-print(resulting_set)
+model = RandomForestClassifier(
+    random_state=42
+)
