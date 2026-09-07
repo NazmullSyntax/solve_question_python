@@ -173,3 +173,4 @@ train = pd.DataFrame({
 })
 
 print(train)
+print(df.loc[0])
